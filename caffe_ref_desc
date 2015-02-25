@@ -1,0 +1,73 @@
+(Caffe Imagenet Reference Model Description)
+Input : [227 227 3]
+
+1. conv
+stride: [4 4]
+pad: [0 0 0 0]
+filters [11 11 3 96]
+
+2. relu
+
+3. maxpooling
+stride: [2 2]
+pad: [0 0 0 0]
+pool: [3 3]
+
+4. normalize [depth, kappa, alpha, beta]
+param: [5 1 2.0000e-05 0.7500]
+
+5. conv
+stride [1 1]
+pad: [2 2 2 2]
+filters: [5 5 48 256]
+
+6. relu
+
+7. maxpooling
+stride: [2 2]
+pad: [0 0 0 0]
+pool: [3 3]
+
+8. normalize
+param: [5 1 2.0000e-05 0.7500]
+
+9. conv
+stride: [1 1]
+pad: [1 1 1 1]
+filters: [3 3 256 384]
+
+10. relu
+
+11. conv
+stride: [1 1]
+pad: [1 1 1 1]
+filters: [3 3 192 384]
+
+12. relu
+
+13. conv5
+stride: [1 1]
+pad: [1 1 1 1]
+filters: [3 3 192 256]
+
+14. relu
+
+15. maxpooling
+stride: [2 2]
+pad: [0 0 0 0]
+pool: [3 3]
+
+16. fully connected layer
+filters: [6 6 256 4096]
+
+17. relu
+
+18. fully connected layer
+filters: [1 1 4096 4096]
+
+19. relu
+
+20. fully connected layer
+filters: [1 1 4096 1000]
+
+21. softmax
